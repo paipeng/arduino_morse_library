@@ -13,6 +13,7 @@ public:
 private:
   void dot();
   void dash();
+  void pause();
   void genSingleMorseCode(char* code);
 private:
   int _pin;

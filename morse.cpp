@@ -24,13 +24,14 @@ void Morse::encodeTest(char* text) {
       if (t >= 48 && t <= 57) { // number
         morse_code = numbers[(int)t - 48];
       } else if (t >= 65 && t <= 90) {
-        morse_code = numbers[(int)t - 65];
+        morse_code = letters[(int)t - 65];
       } else if (t >= 97 && t <= 122) {
-        morse_code = numbers[(int)t - 97];
+        morse_code = letters[(int)t - 97];
       }
       if (morse_code != NULL) {
         genSingleMorseCode(morse_code);
       }
+      pause();
     }
   }
 }
@@ -48,6 +49,10 @@ void Morse::dash()
   digitalWrite(_pin, HIGH);
   delay(1000);
   digitalWrite(_pin, LOW);
+  delay(250);
+}
+
+void Morse:: pause() {
   delay(250);
 }
 
