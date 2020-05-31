@@ -5,7 +5,7 @@
 
 class Morse {
 public:  
-  Morse(int pin);
+  Morse(int pin, boolean output);
   ~Morse();
 public:
   void encodeTest(char* text);  
@@ -17,6 +17,7 @@ private:
   void genSingleMorseCode(char* code);
 private:
   int _pin;
+  boolean _output;
 };
 
 #endif

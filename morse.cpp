@@ -6,14 +6,15 @@ char* letters[] = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..
 // assign a pointer for the numbers represented in morsecode (0,1,2,...9)
 char* numbers[] = {"-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."};
 
-Morse::Morse(int pin) {
+Morse::Morse(int pin, boolean output) {
   _pin = pin;
+  _output = output;
   pinMode(_pin, OUTPUT);
 }
 
 
 Morse::~Morse() {
-  
+
 }
 void Morse::encodeTest(char* text) {
   char* morse_code;
@@ -38,6 +39,9 @@ void Morse::encodeTest(char* text) {
 
 void Morse::dot()
 {
+  if (_output == true) {
+    Serial.print(".");
+  }
   digitalWrite(_pin, HIGH);
   delay(250);
   digitalWrite(_pin, LOW);
@@ -46,6 +50,9 @@ void Morse::dot()
 
 void Morse::dash()
 {
+  if (_output == true) {
+    Serial.print("-");
+  }
   digitalWrite(_pin, HIGH);
   delay(1000);
   digitalWrite(_pin, LOW);
@@ -53,6 +60,9 @@ void Morse::dash()
 }
 
 void Morse:: pause() {
+  if (_output == true) {
+    Serial.print(" ");
+  }
   delay(250);
 }
 
